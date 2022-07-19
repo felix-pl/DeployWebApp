@@ -20,9 +20,9 @@ Param(
 
 Import-Module WebAdministration
 
-$app_pool = Get-IISAppPool -Name $app_pool_name
+$app_pool
 
-if ($NULL -eq $app_pool) 
+if( !(Test-Path IIS:\AppPools\$app_pool_name) )
 {
     Write-Output "Create new app pool"
     $app_pool = New-WebAppPool -Name $app_pool_name
