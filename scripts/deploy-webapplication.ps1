@@ -35,6 +35,7 @@ else
     
     if ("Stopped" -ne $app_pool_state.Value)
     {
+        Write-Output "Stop app pool"
         Stop-WebAppPool -Name $app_pool_name
     }
     
@@ -57,8 +58,16 @@ if (Test-Path $physical_path -pathType container)
 
 New-Item -ItemType Directory -Path $physical_path -Force
 
+Write-Output "$physical_path is created"
+
 Copy-Item $package_path\** -Destination $physical_path -Recurse
+
+Write-Output "Date is copied from $package_path to $physical_path"
 
 New-WebApplication $app_name -Site $website_name -ApplicationPool $app_pool_name -PhysicalPath $physical_path -Force
 
+Write-Output "$app_name is created under $website_name"
+
 Start-WebAppPool -Name $app_pool_name
+
+Write-Output "$app_pool_name is started"
