@@ -36,14 +36,13 @@ runs:
   steps:
     - name: Deploy Web Application
       shell: powershell
-      run: >
-        ${{ github.action_path }}/scripts/deploy-webapplication.ps1
-        -app_name: "${{ inputs.app_name }}"
-        -app_pool_name: "${{ inputs.app_pool_name }}"
-        -app_pool_username: "${{ inputs.app_pool_username }}"
-        -app_pool_password: "${{ inputs.app_pool_password }}"
-        -physical_path: "${{ inputs.physical_path }}"
-        -virtual_path: "${{ inputs.virtual_path }}"
-        -website_name: "${{ inputs.website_name }}"
-        -package_path: "${{ inputs.package_path }}"
-        -dotnet_version: "${{ inputs.dotnet_version }}"
+      run: ${{ github.action_path }}/scripts/deploy-webapplication.ps1 `
+        -app_name ${{ inputs.app_name }} `
+        -app_pool_name ${{ inputs.app_pool_name }} `
+        -app_pool_username ${{ inputs.app_pool_username }} `
+        -app_pool_password ${{ inputs.app_pool_password }} `
+        -physical_path ${{ inputs.physical_path }} `
+        -virtual_path ${{ inputs.virtual_path }} `
+        -website_name ${{ inputs.website_name }} `
+        -package_path ${{ inputs.package_path }} `
+        -dotnet_version ${{ inputs.dotnet_version }}
