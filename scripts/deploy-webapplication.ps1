@@ -6,7 +6,7 @@ Param(
     [parameter(Mandatory = $true)]
     [string]$app_pool_username,
     [parameter(Mandatory = $true)]
-    [SecureString]$app_pool_password,
+    [string]$app_pool_password,
     [parameter(Mandatory = $true)]
     [string]$physical_path,
     [parameter(Mandatory = $true)]
