@@ -45,9 +45,9 @@ else
     $app_pool.startMode = "OnDemand"
     $app_pool.managedPipelineMode = "Integrated"
     $app_pool.enable32BitAppOnWin64 = $false
-    $app_pool.managedRuntimeVersion = $dotnet_version
-    $app_pool.processModel.userName = $app_pool_username
-    $app_pool.processModel.password = $app_pool_password
+    $app_pool.managedRuntimeVersion = "$dotnet_version"
+    $app_pool.processModel.userName = "$app_pool_username"
+    $app_pool.processModel.password = "$app_pool_password"
     $app_pool.processModel.identityType = 3     #SpecificUser
     $app_pool | Set-Item
 
