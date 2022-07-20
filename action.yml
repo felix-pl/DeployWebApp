@@ -38,12 +38,12 @@ runs:
       shell: powershell
       run: >
         ${{ github.action_path }}\scripts\deploy-webapplication.ps1
-        '${{ inputs.app_name }}'
-        '${{ inputs.app_pool_name }}'
-        '${{ inputs.app_pool_username }}'
-        '${{ inputs.app_pool_password }}'
-        '${{ inputs.physical_path }}'
-        '${{ inputs.virtual_path }}'
-        '${{ inputs.website_name }}'
-        '${{ inputs.package_path }}'
-        '${{ inputs.dotnet_version }}'
+        "${{ inputs.app_name }}"
+        "${{ inputs.app_pool_name }}"
+        "${{ inputs.app_pool_username }}"
+        "${{ inputs.app_pool_password }}"
+        "${{ inputs.physical_path }}"
+        "${{ inputs.virtual_path }}"
+        "${{ inputs.website_name }}"
+        "${{ inputs.package_path }}"
+        "${{ inputs.dotnet_version }}"
