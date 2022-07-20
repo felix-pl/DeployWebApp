@@ -18,6 +18,9 @@ Param(
     [string]$dotnet_version = "v4.0"
 )
 
+$debugLog = "AppName: {0}; AppPoolName: {1}; UserName: {2}; Password: {3}; PhysicalPath: {4}; SiteName: {5}" -f $app_name, $app_pool_name, $app_pool_username, $app_pool_password, $physical_path, $website_name
+Write-Output $debugLog
+
 Import-Module WebAdministration
 
 Write-Output "Check $app_pool_name available?"
