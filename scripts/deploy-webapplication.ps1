@@ -54,6 +54,13 @@ else
     $app_pool.processModel.identityType = 3
     $app_pool | Set-Item
 
+if ((Test-Path IIS:\Sites\$website_name\$app_name -pathType container))
+{
+    Write-Output "Remove $app_name under $website_name"
+    
+    Remove-WebApplication -Name $app_name -Site $website_name
+}
+
 if (Test-Path $physical_path -pathType container)
 {
     Remove-Item $physical_path -Force -Recurse
@@ -63,7 +70,7 @@ New-Item -ItemType Directory -Path $physical_path -Force
 
 Write-Output "$physical_path is created"
 
-Copy-Item $package_path\** -Destination $physical_path -Recurse
+Copy-Item $package_path\** -Destination $physical_path -Recurse -Force
 
 Write-Output "Date is copied from $package_path to $physical_path"
 
